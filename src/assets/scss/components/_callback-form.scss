@@ -1,0 +1,129 @@
+@use "../base" as *;
+
+.feedback {
+    overflow: hidden;
+    background-color: #f2f2f2;
+    min-height: 338px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    section:has(&) {
+        margin-bottom: 0;
+    }
+    .container {
+        // z-index: 2; //?
+    }
+    &__content {
+        max-width: 800px;
+    }
+
+    &__text {
+        font-size: $fs18;
+        font-weight: $fw-r;
+    }
+
+    &__policy {
+        font-size: $fs14;
+        font-weight: $fw-r;
+        opacity: 0.5;
+    }
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        img {
+            max-height: 368px;
+        }
+    }
+}
+
+.feedback-form {
+    display: flex;
+    align-items: flex-end;
+    margin: 40px 0 20px 0;
+    gap: 20px;
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        width: 100%;
+        max-width: 294px;
+    }
+
+    &__label {
+        font-size: 14px;
+    }
+
+    &__input {
+        height: 44px;
+        width: 100%;
+        max-width: 294px;
+        padding: 10px;
+        background-color: inherit;
+        border: 1px solid black;
+        border-radius: 4px;
+    }
+
+    &__btn {
+        max-width: 185px;
+        width: 100%;
+        height: 44px;
+    }
+}
+@media (max-width: #{$bp-desktop}) {
+    .feedback {
+        &__content {
+            max-width: 550px;
+        }
+        &__bg {
+            display: flex;
+            justify-content: flex-end;
+            img {
+                width: 65%;
+                max-height: 100%;
+            }
+        }
+    }
+}
+@media (max-width: #{$bp-laptop}) {
+    .feedback {
+        &__content {
+            max-width: 100%;
+        }
+        &__bg {
+            display: none;
+        }
+    }
+}
+@media (max-width: #{$bp-tablet }) {
+    .feedback {
+        padding: 30px 0;
+        text-align: center;
+        &__title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        &__text {
+            font-size: $fs14;
+        }
+        &__content {
+            max-width: 288px;
+            margin: 0 auto;
+        }
+        &__policy {
+            font-size: 12px;
+        }
+    }
+    .feedback-form {
+        margin: 20px 0;
+        flex-direction: column;
+        &__label {
+            text-align: start;
+        }
+        &__btn {
+            max-width: 100%;
+        }
+    }
+}

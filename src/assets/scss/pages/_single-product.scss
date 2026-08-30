@@ -1,0 +1,646 @@
+@use "../base" as *;
+
+.single-product-hero {
+    margin: 20px 0 50px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.single-product {
+    &__title {
+        // font-size: 32px;
+        font-weight: $fw-m;
+        margin: 17px 0 5px 0;
+    }
+    &__slider {
+        // margin: 20px 0 50px 0;
+        display: flex;
+        gap: 15px;
+        max-height: 554px;
+    }
+
+    .product-gallery {
+        max-width: 80px;
+        min-width: 80px;
+        height: fit-content;
+        max-height: 604px !important;
+        position: relative;
+        .swiper-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .swiper-slide {
+            width: 100% !important;
+            border: 2px solid transparent;
+            padding: 5px;
+            cursor: pointer;
+            height: 72px !important;
+            @media (hover: hover) {
+                &:hover {
+                    border: 2px solid $main-color;
+                }
+            }
+        }
+
+        .swiper-slide-thumb-active {
+            border: 2px solid $main-color;
+            transition: $tr;
+        }
+    }
+
+    &__next {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // position: absolute; //!
+        bottom: -40px;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+        svg {
+            path {
+                transition: $tr;
+            }
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                svg {
+                    path {
+                        stroke: $main-color;
+                    }
+                }
+            }
+        }
+    }
+    .product-thumbs {
+        max-height: 604px;
+        width: 100%;
+        max-width: 710px;
+        overflow: hidden;
+        margin-right: 1%;
+        .swiper-wrapper {
+            height: fit-content !important;
+        }
+        img {
+            object-fit: contain;
+            object-position: top;
+        }
+
+        
+    }
+}
+
+// ================================================
+.product-sku-block {
+    display: flex;
+    align-items: center;
+}
+.sku-value {
+    margin: 0 2px 0px 5px;
+}
+.copy-sku-icon.active {
+    path {
+        fill: green;
+    }
+}
+
+// ================================================ product-info
+
+.product-info {
+    max-width: 424px;
+    min-width: 424px;
+    &__status {
+        margin-bottom: 20px;
+        color: white;
+        font-weight: 400;
+        font-size: 14px;
+        display: inline-flex;
+    }
+
+    &__buttons {
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    &__specs {
+        margin-top: 10px;
+    }
+    &__terms {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 7px;
+        margin-top: 10px;
+    }
+}
+.info-button-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.info-button-sub {
+    display: flex;
+    gap: 30px;
+}
+.product-status {
+    padding: 5px 10px;
+    border-radius: 0 10px 0 0;
+}
+
+.info-button {
+    padding: 13px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 6px;
+}
+.popup-callback {
+    background-color: $main-color;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    transition: $tr;
+    svg {
+        margin-top: 3px;
+        path {
+            transition: $tr;
+        }
+    }
+    @media (hover: hover) {
+        &:hover {
+            color: white;
+            svg {
+                path {
+                    fill: white;
+                }
+            }
+        }
+    }
+}
+.info-button-kp {
+    display: flex;
+    align-items: center;
+    border: 1px solid $main-color;
+    border-radius: 6px;
+    transition: $tr;
+    min-width: 177px;
+    a {
+        width: 100%;
+    }
+    @media (hover: hover) {
+        &:hover {
+            background-color: $main-color;
+        }
+    }
+}
+.info-btn-sub {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+}
+.product-status--in_stock {
+    background-color: #86d448;
+}
+.product-status--on_order {
+    background-color: #95a5a6;
+}
+.product-status--in_transit {
+    background-color: #3498db;
+}
+// ================================================ specs
+.product-specs-wrapper {
+    position: relative;
+    max-height: 110px;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out;
+    &.is-open {
+        max-height: 1000px;
+        .product-specs-overlay {
+            opacity: 0;
+        }
+    }
+}
+
+.product-specs-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    --overlay-bg: #{$main-color};
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.specs-show-more-btn {
+    cursor: pointer;
+    font-size: 15px;
+    max-height: 40px;
+    opacity: 1;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    &.is-hidden {
+        opacity: 0;
+        max-height: 0;
+        position: absolute;
+        transition: all 0.3s ease;
+    }
+}
+
+// ================================================ manufacturers
+.product-body-manufacturers li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: fit-content;
+    img {
+        width: 70px !important;
+        height: 45px !important;
+        display: inline-block;
+    }
+}
+
+// ================================================ single-product-description
+.single-product-description {
+    &__banner {
+        background: linear-gradient(90deg, $main-color 70%, rgba(0, 0, 0, 1) 70%);
+        overflow: hidden;
+        position: relative;
+    }
+    &__bg {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -20px;
+        height: 100%;
+        max-width: 180px;
+        opacity: 0.1;
+    }
+    &__contaier {
+        display: flex;
+    }
+
+    &__info {
+        --overlay-bg: #{$main-color};
+        background-color: var(--overlay-bg);
+        padding: 40px 40px 40px 0;
+        max-width: 795px;
+        flex: 1 1 auto;
+        button {
+            color: #4f4f4f; //!
+        }
+    }
+
+    &__info-title {
+        margin-bottom: 15px;
+    }
+
+    &__info-text {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 130%;
+        margin-bottom: 20px;
+        // max-width: 840px;
+        position: relative;
+        overflow: hidden;
+        max-height: 40px;
+        // transition: all 1s ease;
+        &.is-open {
+            max-height: 100px;
+            overflow: visible;
+            // transition: all 1s ease;
+        }
+
+        transition: max-height 0.8s ease-in-out;
+        &.is-open {
+            max-height: 1000px;
+            .product-description-overlay {
+                opacity: 0;
+            }
+        }
+    }
+
+    &__features {
+        width: 30%;
+        background-color: black;
+        color: white;
+        padding: 40px;
+        // max-width: 308px;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__features-list {
+        li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    .feature-icon {
+        img {
+            max-width: 38px;
+            max-height: 38px;
+            min-width: 38px;
+            min-height: 38px;
+        }
+    }
+}
+.desc-show-more-btn {
+    transition: all 0.3s ease-in-out;
+    &.is-hidden {
+        opacity: 0;
+        position: absolute;
+    }
+}
+.product-description-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    --overlay-bg: #{$main-color};
+    background: linear-gradient(to bottom, rgba(254, 200, 11, 0), var(--overlay-bg));
+}
+
+// ================================================ product-schematic
+.hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+
+    &--y-top {
+        .hotspot__tooltip {
+            bottom: 10px;
+        }
+    }
+    &--y-bottom {
+        .hotspot__tooltip {
+            top: 10px;
+        }
+    }
+
+    &--x-right {
+        .hotspot__tooltip {
+            left: 15px;
+        }
+    }
+
+    &--x-left {
+        .hotspot__tooltip {
+            right: 15px;
+        }
+    }
+
+    &__btn {
+        overflow: hidden;
+        position: relative;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: $main-color;
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        animation: pulse-shadow 1.5s ease-in-out infinite alternate;
+        z-index: 2;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 2px;
+            width: 60%;
+            background-color: black;
+            transform: translate(-50%, -50%) rotate(90deg);
+            transition: all 0.2s ease-in-out;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60%;
+            height: 2px;
+            background-color: black;
+            // transform: translate(-50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+            transition: all 0.2s ease-in-out;
+        }
+        &.is-active {
+            &::before {
+                opacity: 0;
+                width: 0%;
+                height: 0%;
+            }
+        }
+        @media (hover: hover) {
+            &:hover {
+                animation-play-state: paused;
+                &::before {
+                    opacity: 0;
+                    width: 0%;
+                    height: 0%;
+                }
+            }
+        }
+    }
+
+    &__tooltip {
+        position: absolute;
+        width: max-content;
+        max-width: 200px;
+        background-color: $main-color;
+        color: black;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        z-index: 1;
+        text-align: start;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+        &.is-active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    @media (hover: hover) {
+        &:hover {
+            .hotspot__btn {
+                animation: none;
+                &::before {
+                    opacity: 0;
+                    width: 0%;
+                    height: 0%;
+                }
+            }
+
+            .hotspot__tooltip {
+                opacity: 1;
+                visibility: visible;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+}
+.schematic-slider {
+    &__title {
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
+.schematic-thumbs {
+    overflow: hidden;
+    margin: 20px 0;
+    padding: 0;
+    .swiper-wrapper {
+        max-height: 504px;
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+.schematic-wrapper {
+    position: relative;
+    max-height: 504px;
+    overflow: hidden;
+    width: fit-content;
+    text-align: center;
+    img {
+        object-fit: contain !important;
+        height: 100%;
+        width: fit-content;
+        max-width: fit-content;
+        max-height: 504px;
+    }
+}
+
+.schematic-gallery {
+    overflow: hidden;
+    width: fit-content !important;
+    margin-bottom: 50px;
+    .swiper-wrapper {
+        width: fit-content !important;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .swiper-slide {
+        width: fit-content !important;
+        height: 62px !important;
+        border: 2px solid transparent;
+        cursor: pointer;
+
+        @media (hover: hover) {
+            &:hover {
+                border: 2px solid $main-color;
+            }
+        }
+    }
+
+    .swiper-slide-thumb-active {
+        border: 2px solid $main-color;
+        transition: $tr;
+    }
+}
+
+@keyframes pulse-shadow {
+    from {
+        box-shadow: 0 0 15px 2px rgba($main-color, 1);
+    }
+    to {
+        box-shadow: 0 0 25px 10px rgba($main-color, 1);
+    }
+}
+
+// =================================================================================== product-characteristics
+// =================================================================================== product-characteristics
+// =================================================================================== product-characteristics
+
+.product-characteristics {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    margin-bottom: 100px;
+    .info-button-kp {
+        width: 100%;
+        max-width: 162px;
+        background-color: $main-color;
+        a {
+            padding: 6px 5px;
+        }
+        @media (hover: hover) {
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        max-width: 536px;
+        margin-bottom: 40px;
+    }
+
+    &__title {
+    }
+
+    &__columns {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    &__column {
+        width: 100%;
+        max-width: 536px;
+
+        .product-specs-list {
+            margin: 10px 0 20px 0; //!
+        }
+    }
+}
+
+// =================================================================================== product-characteristics
+// =================================================================================== product-characteristics
+// =================================================================================== product-characteristics
+
+.similar-products {
+    &__title {
+        margin-bottom: 15px;
+    }
+}
+.similar-slider {
+}
+.similar-slider-wrapper {
+}
+.swiper-wrapper {
+}
+.similar-slide {
+    img {
+        // max-width: 300px;
+    }
+}
+.swiper-slide {
+}
+

@@ -1,0 +1,25 @@
+@use "../base" as *;
+
+.product-specs-list {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.product-specs-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 5px;
+    font-size: 16px;
+    &:nth-child(odd) {
+        background-color: #efeaea;
+    }
+}
+
+.product-specs-label {
+    padding-right: 4px;
+    max-width: 420px;
+}
+
+.product-specs-value {
+    padding-left: 4px;
+}

@@ -1,0 +1,29 @@
+@use "../base" as *;
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.custom-logo-link {
+    display: flex;
+    align-items: center;
+    font-size: $fs-logo;
+    font-weight: $fw-b;
+    text-transform: uppercase;
+    padding-right: 10px;
+    img {
+        width: 44px;
+        height: 44px;
+    }
+    span {
+        position: relative;
+        top: 2px;
+    }
+}
+
+@media (max-width:#{$bp-tablet}) {
+    .custom-logo-link {
+        font-size: 25px;
+    }
+}

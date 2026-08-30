@@ -1,0 +1,101 @@
+@use "variables" as *;
+
+#wpadminbar {
+    display: none !important;
+    // opacity: 0;
+    // &:hover {
+    //     opacity: 1;
+    // }
+}
+html {
+    margin-top: 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    // min-height: 100vh; /* Растягиваем на всю высоту экрана */
+    // margin: 0;
+}
+body {
+    font-family: $ff;
+    // overflow: hidden !important;
+    // background-color: antiquewhite;
+    // background-color: red;
+    display: flex;
+    flex-direction: column;
+}
+img {
+    vertical-align: top;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Edge (старые) */ /* старый Konqueror */
+    -moz-user-select: none; /* старый Firefox */ /* IE/старый Edge */
+    user-select: none;
+}
+.container {
+    width: 100%;
+    max-width: ($container-w + ($container-p * 2));
+    margin: 0 auto;
+    padding: 0px $container-p;
+}
+
+header {
+    flex: 0 0 auto;
+}
+main {
+    flex: 1 0 auto;
+    z-index: 5;
+    // padding-top: 70px; //?
+    // padding-top: 10px;
+}
+footer {
+    flex: 0 0 auto; //! дёргает экран при скролле вниз
+}
+section{
+    margin-bottom: 80px;
+}
+h2 {
+    font-size: 42px;
+    font-weight: $fw-m;
+    color: $accent-color;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: $fw-m;
+    color: $accent-color;
+}
+@media (max-width:#{$bp-tablet }) {
+    .title {
+        font-size: 28px;
+    }
+}
+
+.subtitle {
+    font-size: 32px;
+    color: $accent-color;
+    font-weight: $fw-m;
+}
+.muted-action {
+    color: #a1a1a1;
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: underline;
+            color: #333;
+            svg {
+                path {
+                    fill: #333;
+                }
+            }
+        }
+    }
+}
+
+.muted-action-underline {
+    text-decoration: underline;
+    // @media (hover: hover) {
+    //     &:hover {
+    //         color: #333;
+    //     }
+    // }
+}

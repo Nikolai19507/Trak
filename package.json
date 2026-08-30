@@ -1,0 +1,25 @@
+{
+  "name": "trak",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "sass": "^1.70.0",
+    "vite": "^5.0.0",
+    "vite-plugin-fonts-auto": "^1.2.1",
+    "vite-plugin-live-reload": "^3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "dependencies": {
+    "swiper": "^12.2.0"
+  }
+}

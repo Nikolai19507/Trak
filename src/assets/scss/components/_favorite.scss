@@ -1,0 +1,29 @@
+@use "../base" as *;
+
+.favorite {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    fill: transparent;
+    // transition: $tr;
+    // margin-right: 10px;
+    path {
+        transition: $tr;
+    }
+    @media (hover: hover) {
+        &:hover {
+            fill: $main-color;
+            path {
+                stroke: $main-color;
+                fill: $main-color;
+            }
+        }
+    }
+}
+
+@media (max-width:#{$bp-tablet}) {
+    .favorite {
+        width: 28px;
+        height: 28px;
+    }
+}

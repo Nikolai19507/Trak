@@ -1,0 +1,99 @@
+// Fonts
+$ff: "Fira Sans", sans-serif;
+$fw-r: 400;
+$fw-m: 500;
+$fw-b: 800;
+
+//Font size
+// $fs14: 14px; // Small (для подписей, адреса, расписания) s
+// $fs15: 15px; // Medium / Intermediate (промежуточный размер) m
+// $fs16: 16px; // Base / Regular (основной текст сайта) r
+// $fs18: 18px; // Large (для заголовков, акцентных элементов) l
+
+$fs14: 14px;
+$fs15: 15px;
+$fs16: 16px;
+$fs18: 18px;
+
+$fs-menu-link: 22px;
+$fs-menu-sublink: $fs16;
+$fs-logo: 35px;
+
+// font-size-btn
+$fs-btn: $fs16;
+
+//Line Height
+$lh-main: 1.5; // title
+$lh-text: 1.2; // text
+$lh-st: 1; // subtext
+
+// Colors
+$main-color: #fec80b;
+$main-color2: #ffd43a;
+$main-color3: #e9c135;
+
+$bg-color: rgb(214, 159, 57);
+
+$btn-color: white;
+$accent-color: black;
+$text: #a1a1a1;
+$hover-color: #4267ee;
+
+// Container || max-width: $container-w + ($container-p * 2);
+// $container-w: 1440px;
+// $container-p: 60px;
+$container-w: 1238px;
+$container-p: 10px;
+
+//Transition
+$tr: all 0.5s ease;
+$tr-link: all 1.5s ease;
+
+// Breakpoints
+// $bp-desktop: 1200px;
+// $bp-laptop: 992px;
+// $bp-tablet: 768px;
+// $bp-mobile: 480px;
+// $bp-iphone: 320px;
+
+$bp-desktop: 1200px;
+$bp-laptop: 992px;
+$bp-tablet: 767px;
+$bp-mobile: 480px;
+$bp-iphone: 320px;
+
+$bp-1024: 1024px; //tablet
+
+// Переменные означают МАКСИМАЛЬНУЮ ширину экрана устройства
+// $max-phone-small: 479px; // Всё, что ниже — микро-фоны
+// $max-phone: 767px; // Всё, что ниже — обычные телефоны
+// $max-tablet: 991px; // Всё, что ниже — планшеты
+// $max-laptop: 1199px; // Всё, что ниже — ноутбуки
+// Миксин для экранов меньше 1200px (Desktop / старые мониторы)
+// 1. ПЕРЕМЕННЫЕ (Строго круглые физические размеры реальных гаджетов)
+$bp-1200: 1200px; // Начало мониторов (все, что выше — десктоп)
+$bp-1024: 1024px; // Альбомный планшет / iPad Pro (крупный адаптив)
+$bp-992:  992px;  // Ноутбуки / Большие планшеты
+$bp-768:  768px;  // Вертикальный планшет (iPad)
+$bp-480:  480px;  // Горизонтальный смартфон / Крупный мобильный
+
+// 2. МИКСИНЫ (Простые человеческие слова, которые САМИ вычитают 1px)
+@mixin laptop {
+    @media (max-width: ($bp-1200 - 1px)) { @content; } // Сработает на 1199px
+}
+
+@mixin tablet-lg {
+    @media (max-width: ($bp-1024 - 1px)) { @content; } // Сработает на 1023px
+}
+
+@mixin tablet {
+    @media (max-width: ($bp-992 - 1px)) { @content; } // Сработает на 991px
+}
+
+@mixin mobile {
+    @media (max-width: ($bp-768 - 1px)) { @content; } // ВОТ ОНА! Сработает на 767px
+}
+
+@mixin mobile-sm {
+    @media (max-width: #{$bp-480}) { @content; } // Для мелких правок на телефонах (480px)
+}

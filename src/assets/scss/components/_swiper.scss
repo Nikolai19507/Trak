@@ -1,0 +1,201 @@
+@use "../base" as *;
+
+//================================================================ hero-slider
+//================================================================ hero-slider
+//================================================================ hero-slider
+.hero {
+    &__slide {
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.8) 0%,
+                rgba(0, 0, 0, 0.5875) 32.71%,
+                rgba(0, 0, 0, 0.3271) 58.75%,
+                rgba(0, 0, 0, 0.216) 100%
+            );
+        }
+    }
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+.swiper-wrapper {
+    height: 100%;
+    position: relative;
+}
+.swiper-slide {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hero-swiper-button-prev,
+.hero-swiper-button-next {
+    --swiper-navigation-size: 25px;
+    --swiper-navigation-color: rgba(255, 255, 255, 0.885);
+    background-color: rgba(128, 128, 128, 0.353);
+    transition: $tr;
+    @media (hover: hover) {
+        &:hover {
+            --swiper-navigation-color: $hover-color;
+            color: $main-color;
+        }
+    }
+}
+
+.hero-swiper-pagination .swiper-pagination-bullet {
+    --swiper-pagination-bullet-size: 10px;
+    --swiper-pagination-bullet-inactive-color: rgba(255, 0, 0, 0);
+    border: 1px solid white;
+    opacity: 1 !important;
+    transition: $tr;
+    @media (hover: hover) {
+        &:hover {
+            background-color: $main-color;
+            border: 1px solid $main-color;
+            opacity: 1 !important;
+        }
+    }
+}
+.hero-swiper-pagination .swiper-pagination-bullet-active {
+    background-color: white;
+    @media (hover: hover) {
+        &:hover {
+            background-color: white;
+            border: 1px solid white;
+        }
+    }
+}
+.hero-swiper-pagination .swiper-pagination-bullets {
+    --swiper-theme-color: white;
+}
+
+//================================================================ categories-slider
+//================================================================ categories-slider
+//================================================================ categories-slider
+.categories-slider {
+    margin-top: 80px;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+//============================================== products-slider
+//============================================== products-slider
+//============================================== products-slider
+
+.products-slider {
+    margin-top: 50px;
+    background-color: #f9f9f9;
+    padding: 30px 0 50px 0;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+//============================================== news-slider
+//============================================== news-slider
+//============================================== news-slider
+.news-slider {
+    margin-top: 100px;
+
+    .swiper-wrapper {
+        display: flex !important;
+        align-items: stretch !important;
+    }
+
+    .swiper-slide {
+        display: flex !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width:#{$bp-tablet - 1px}) {
+    .news-slider {
+        margin-top: 50px;
+    }
+}
+
+// ===============================================
+// ===============================================
+// ===============================================
+.slider-arrow-prev,
+.slider-arrow-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $accent-color;
+    width: 35px;
+    height: 35px;
+    background-color: inherit;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    transition: $tr;
+    cursor: pointer;
+    @media (hover: hover) {
+        &:hover {
+            background-color: $main-color;
+            .swiper-button-disabled {
+                cursor: auto;
+            }
+        }
+    }
+}
+
+.slider-button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .swiper-pagination-fraction {
+        font-size: 18px;
+        color: #a1a1a1;
+        display: flex;
+        align-items: center;
+        line-height: 0;
+    }
+
+    .swiper-button-disabled {
+        cursor: auto;
+        background-color: inherit !important;
+        opacity: 0.3;
+    }
+}
+
+.slider__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+@media (max-width:#{$bp-tablet - 1px}) {
+    .slider-arrow-prev,
+    .slider-arrow-next {
+        display: none;
+    }
+}

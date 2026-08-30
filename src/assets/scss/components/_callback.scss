@@ -1,0 +1,40 @@
+@use "../base" as *;
+
+.callback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: $main-color;
+    transition: $tr;
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+    @media (hover: hover) {
+        &:hover {
+            transition: $tr;
+            background-color: $hover-color;
+            fill: white;
+            svg {
+                path {
+                    fill: white;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:#{$bp-tablet}) {
+    .callback {
+        width: 40px;
+        height: 40px;
+        svg {
+            width: 23px;
+            height: 23px;
+        }
+    }
+}

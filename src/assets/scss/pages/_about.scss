@@ -1,0 +1,9 @@
+@use "../base" as *;
+
+.about-title {
+    font-size: 50px;
+    color: $main-color;
+    font-family: $ff;
+    font-weight: $fw-b;
+    background-color: black;
+}

@@ -1,0 +1,61 @@
+@use "../base" as *;
+
+.similar-card {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    &__image {
+        margin-bottom: 10px;
+        position: relative;
+
+        .product-status {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: white;
+            padding: 3px 7px;
+            font-size: 13px;
+        }
+    }
+    &__img {
+        max-width: 200px;
+        min-height: 158px;
+    }
+    &__placeholder {
+        background: #e0e0e0;
+        max-width: 200px;
+        min-height: 158px;
+    }
+
+    &__title {
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 15px;
+        flex-grow: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        a {
+            font-size: 15px;
+            font-weight: $fw-r;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__btn-more {
+    }
+
+    &__btn-favorite {
+        margin-right: 5px;
+    }
+}

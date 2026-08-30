@@ -1,0 +1,27 @@
+@use "./base/nullstyle";
+// @use "./base/fonts"; //! Раскомментировать перед npm run build
+@use "./base/variables";
+@use "./base/common";
+
+// ======================================================= components
+@use "./components/button";
+@use "./components/callback";
+@use "./components/favorite";
+@use "./components/logo";
+@use "./components/menu";
+@use "./components/product-specs";
+@use "./components/news-card";
+@use "./components/callback-form";
+@use "./components/single-news";
+@use "./components/similar-card";
+@use "./components/swiper";
+// ======================================================= components
+
+@use "./layout/header";
+@use "./layout/footer";
+
+@use "./pages/about";
+@use "./pages/contacts";
+@use "./pages/single-product";
+@use "./pages/home";
+@use "./pages/services";

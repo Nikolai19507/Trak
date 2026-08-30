@@ -1,0 +1,65 @@
+@use "../base" as *;
+
+.news-grid {
+}
+.news-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    border-radius: 4px;
+    width: 100%;
+    min-height: 345px;
+    position: relative;
+    &__image {
+        width: 100%;
+        height: 203px;
+        flex-shrink: 0;
+        overflow: hidden;
+        border-radius: 4px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__date {
+        font-size: $fs16;
+        font-weight: $fw-r;
+        margin: 16px 0 6px 0;
+    }
+
+    &__title {
+        font-size: $fs18;
+        font-weight: $fw-m;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: auto;
+        font-size: $fs18;
+        font-weight: $fw-r;
+        color: #a1a1a1;
+        transition: $tr;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+        @media (hover: hover) {
+            &:hover {
+                color: $main-color;
+            }
+        }
+    }
+}
