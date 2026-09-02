@@ -51,7 +51,7 @@ main {
 footer {
     flex: 0 0 auto; //! дёргает экран при скролле вниз
 }
-section{
+section {
     margin-bottom: 80px;
 }
 h2 {
@@ -65,7 +65,7 @@ h2 {
     font-weight: $fw-m;
     color: $accent-color;
 }
-@media (max-width:#{$bp-tablet }) {
+@media (max-width:#{$bp-mobile }) {
     .title {
         font-size: 28px;
     }
@@ -75,6 +75,9 @@ h2 {
     font-size: 32px;
     color: $accent-color;
     font-weight: $fw-m;
+    @include mobile{
+        font-size: 24px;
+    }
 }
 .muted-action {
     color: #a1a1a1;

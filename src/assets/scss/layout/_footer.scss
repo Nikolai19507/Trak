@@ -118,7 +118,7 @@
     }
 }
 
-@media (max-width:#{$bp-tablet - 1px}) {
+@media (max-width:#{$bp-mobile - 1px}) {
     .footer {
         padding: 32px 0;
         &__rows {

@@ -43,31 +43,31 @@ $kp_file = get_field('product_kp_file');
 
                         <div class="single-product-hero">
                             <div class="single-product__slider">
-                                <div thumbsSlider="" class="product-gallery">
-                                    <div class="swiper-wrapper swiper-custom-wrapper">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <div class="swiper-slide">
-                                                <?php the_post_thumbnail('thumbnail'); ?>
-                                            </div>
-                                        <?php endif; ?>
-
-                                        <?php
-                                        if ($images) :
-                                            foreach ($images as $image_id) : ?>
+                                <div class="single-product__slider-container">
+                                    <div thumbsSlider="" class="product-gallery">
+                                        <div class="swiper-wrapper swiper-custom-wrapper">
+                                            <?php if (has_post_thumbnail()) : ?>
                                                 <div class="swiper-slide">
-                                                    <?php echo wp_get_attachment_image($image_id, 'thumbnail'); ?>
+                                                    <?php the_post_thumbnail('thumbnail'); ?>
                                                 </div>
-                                        <?php endforeach;
-                                        endif; ?>
+                                            <?php endif; ?>
 
-                                        <div class="single-product__next">
-                                            <svg width="24" height="13" viewBox="0 0 24 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M23 1L12 12L1 1" stroke="#A2A2A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
+                                            <?php
+                                            if ($images) :
+                                                foreach ($images as $image_id) : ?>
+                                                    <div class="swiper-slide">
+                                                        <?php echo wp_get_attachment_image($image_id, 'thumbnail'); ?>
+                                                    </div>
+                                            <?php endforeach;
+                                            endif; ?>
                                         </div>
                                     </div>
+                                    <div class="single-product__next">
+                                        <svg width="24" height="13" viewBox="0 0 24 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M23 1L12 12L1 1" stroke="#A2A2A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
                                 </div>
-
                                 <div class="product-thumbs">
                                     <div class="swiper-wrapper">
                                         <?php if (has_post_thumbnail()) : ?>
@@ -233,7 +233,7 @@ $kp_file = get_field('product_kp_file');
                 </div>
             </section>
 
-            <section style="display: none;">
+            <section>
                 <div class="single-product-description">
                     <div class="single-product-description__banner">
 
@@ -294,7 +294,7 @@ $kp_file = get_field('product_kp_file');
 
 
 
-            <section style="display: none;">
+            <section>
                 <div class="schematic-slider">
                     <div class="container">
                         <div class="schematic-slider__title">ACF Название категории, вид сбоку</div>
@@ -344,11 +344,9 @@ $kp_file = get_field('product_kp_file');
                                     </div>
                                 </div>
 
-                                <div thumbsSlider="" class="swiper product-gallery_1 schematic-gallery">
+                                <div thumbsSlider="" class="schematic-gallery">
                                     <div class="swiper-wrapper swiper-custom-wrapper">
                                         <?php
-                                        // reset_rows('schematic_slides'); //?
-
                                         while (have_rows('schematic_slides')) : the_row();
                                             $image = get_sub_field('schematic_img');
                                             $img_id = is_array($image) ? $image['id'] : $image;

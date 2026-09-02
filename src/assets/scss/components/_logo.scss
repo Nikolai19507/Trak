@@ -22,7 +22,7 @@
     }
 }
 
-@media (max-width:#{$bp-tablet}) {
+@media (max-width:#{$bp-mobile}) {
     .custom-logo-link {
         font-size: 25px;
     }

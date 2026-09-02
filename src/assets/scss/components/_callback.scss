@@ -28,7 +28,7 @@
     }
 }
 
-@media (max-width:#{$bp-tablet}) {
+@media (max-width:#{$bp-mobile}) {
     .callback {
         width: 40px;
         height: 40px;

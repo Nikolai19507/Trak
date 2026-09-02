@@ -10,7 +10,16 @@ export default defineConfig({
         : '/',
 
     plugins: [
-        liveReload(__dirname + '/**/*.php'),
+        // liveReload(__dirname + '/**/*.php'),
+
+        // Следим только за файлами в корне темы и в ключевых подпапках
+        liveReload([
+            './*.php',                  // Все PHP-файлы в корне темы (index.php, header.php и т.д.)
+            './inc/**/*.php',            // Файлы внутри папки inc
+            './template-parts/**/*.php'  // Файлы внутри папки template-parts
+        ], {
+            alwaysReload: true
+        }),
     ],
 
     resolve: {
@@ -25,17 +34,6 @@ export default defineConfig({
                 autoprefixer()
             ],
         },
-        // preprocessorOptions: {
-        //     scss: {
-        //         // Включаем современный API Sass, который требует Vite 5.4+ / Vite 6
-        //         api: 'modern-compiler',
-
-        //         // Физически склеиваем импорт переменных с началом каждого SCSS-файла
-        //         additionalData: `@use "src/assets/scss/base/variables" as *;\n`
-        //     }
-        // } 
-        //! не работает
-
     },
 
     build: {
@@ -54,5 +52,12 @@ export default defineConfig({
         hmr: {
             host: 'localhost',
         },
+        watch: {
+            // Запрещаем Vite даже заглядывать в node_modules и dist при отслеживании
+            ignored: [
+                '**/node_modules/**',
+                '**/dist/**'
+            ]
+        }
     },
 })

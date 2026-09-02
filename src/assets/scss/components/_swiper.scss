@@ -129,7 +129,7 @@
     }
 }
 
-@media (max-width:#{$bp-tablet - 1px}) {
+@media (max-width:#{$bp-mobile - 1px}) {
     .news-slider {
         margin-top: 50px;
     }
@@ -193,7 +193,7 @@
     flex-direction: column;
     gap: 25px;
 }
-@media (max-width:#{$bp-tablet - 1px}) {
+@media (max-width:#{$bp-mobile - 1px}) {
     .slider-arrow-prev,
     .slider-arrow-next {
         display: none;

@@ -26,8 +26,8 @@
         overflow: hidden;
 
         img {
-            max-width: 646px; 
-            max-height: 406px; 
+            max-width: 646px;
+            max-height: 406px;
             border-radius: 4px;
         }
     }
@@ -133,7 +133,7 @@
     }
 }
 
-@media (max-width:#{$bp-tablet}) {
+@media (max-width:#{$bp-mobile}) {
     .single-news {
         &__title {
             font-size: 24px;

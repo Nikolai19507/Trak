@@ -500,7 +500,7 @@
     }
 }
 
-@media (max-width:#{$bp-tablet}) {
+@media (max-width:#{$bp-mobile}) {
     .header {
         &__callback {
             margin-left: 0;
@@ -638,7 +638,7 @@
     }
 }
 
-@media (max-width:#{$bp-tablet}) {
+@media (max-width:#{$bp-mobile}) {
     // .sub-menu {
     //     overflow: hidden;
     //     max-height: 0;

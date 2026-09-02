@@ -113,16 +113,24 @@ function singleProductSwiper() {
     const swiperGallery = new Swiper('.product-gallery', {
         modules: [Thumbs],
         loop: true,
-        spaceBetween: 10,
-        slidesPerView: 4,
+        spaceBetween: 5,
+        slidesPerView: 6,
         freeMode: true,
         watchSlidesProgress: true,
+        direction: 'vertical',
+        breakpoints: {
+            320: { slidesPerView: 4, spaceBetween: 0 },
+            767: { slidesPerView: 5, spaceBetween: 10 },
+            1024: { slidesPerView: 6, spaceBetween: 10 }
+        }
+
     });
 
     const swiperThumbs = new Swiper('.product-thumbs', {
         modules: [Navigation, Thumbs],
         loop: true,
         spaceBetween: 0,
+        slidesPerView: 1,
         direction: 'vertical',
         navigation: {
             nextEl: '.single-product__next',
@@ -139,10 +147,11 @@ window.addEventListener('DOMContentLoaded', singleProductSwiper);
 function schematicProductSwiper() {
     const schematicGallerySwiper = new Swiper('.schematic-gallery', {
         loop: false,
-        spaceBetween: 10,
+        spaceBetween: 0,
         slidesPerView: 3,
-        watchSlidesProgress: true,
-        allowTouchMove: false,
+        // watchSlidesProgress: true,
+        // allowTouchMove: false,
+        direction: 'horizontal',
     });
 
     const schematicThumbsSwiper = new Swiper('.schematic-thumbs', {
